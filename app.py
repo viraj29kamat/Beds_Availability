@@ -2,8 +2,7 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 from statsmodels.tsa.holtwinters import ExponentialSmoothing
-import requests
-import io
+
 
 st.title('Forecasting of Beds Available')
 
@@ -23,8 +22,7 @@ df = user_input_features()
 
 st.subheader('Date')
 st.write(df)
-url ="https://github.com/viraj29kamat/Beds_Availability/blob/main/Beds_Occupied.csv"
-data = requests.get(url).content
+data = pd.read_csv('https://raw.githubusercontent.com/viraj29kamat/Beds_Availability/main/Beds_Occupied.csv')
 data['collection_date'] =  pd.to_datetime(data['collection_date'],infer_datetime_format=True)
 data['Total_available_beds'] = 900 - data['Total Inpatient Beds']
 data1 = data.drop(['Total Inpatient Beds'],axis=1)
