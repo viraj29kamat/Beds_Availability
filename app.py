@@ -31,9 +31,9 @@ missing_dates=pd.date_range(start="2020-06-15", end="2021-06-15").difference(ind
 r = pd.date_range(start="2020-06-15", end="2021-06-15")
 newdata=indexedDataset.reindex(r).rename_axis('collection_date').reset_index()
 finaldata= newdata['Total_available_beds'].interpolate(method='linear')
-finaldata['t'] = range(1,367)
-finaldata['tsqr'] = finaldata['t']**2
-finaldata['log_Total_available_beds'] = np.log(finaldata['Total_available_beds'])
+#finaldata['t'] = range(1,367)
+#finaldata['tsqr'] = finaldata['t']**2
+#finaldata['log_Total_available_beds'] = np.log(finaldata['Total_available_beds'])
 final_model = ExponentialSmoothing(finaldata["Total_available_beds"],seasonal='add',seasonal_periods=8).fit()
 forecast_final = final_model.forecast(steps=31)
 date = pd.date_range(start="2021-06-16", end="2021-07-16")
