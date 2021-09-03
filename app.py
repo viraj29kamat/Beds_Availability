@@ -30,7 +30,7 @@ indexedDataset = data1.set_index(['collection_date'])
 missing_dates=pd.date_range(start="2020-06-15", end="2021-06-15").difference(indexedDataset.index)
 r = pd.date_range(start="2020-06-15", end="2021-06-15")
 newdata=indexedDataset.reindex(r).rename_axis('collection_date').reset_index()
-finaldata= newdata.interpolate(method='linear')
+finaldata= newdata['Total_available_beds'].interpolate(method='linear')
 finaldata['t'] = range(1,367)
 finaldata['tsqr'] = finaldata['t']**2
 finaldata['log_Total_available_beds'] = np.log(finaldata['Total_available_beds'])
