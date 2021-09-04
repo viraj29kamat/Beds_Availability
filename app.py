@@ -5,13 +5,6 @@ from statsmodels.tsa.holtwinters import ExponentialSmoothing
 
 
 st.title('Forecasting of Beds Available')
- html_temp = """
-    <div style="background-color:teal ;padding:10px">
-    <h2 style="color:white;text-align:center;">Forecasting of Beds Available</h2>
-    </div>
-    """
-    st.markdown(html_temp, unsafe_allow_html=True)
-
 st.sidebar.header('Select Date To Check Beds Availability ')
 
 
