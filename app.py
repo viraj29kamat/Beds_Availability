@@ -2,8 +2,10 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 from statsmodels.tsa.holtwinters import ExponentialSmoothing
+from PIL import Image
 
-
+image = Image.open('hospital.jpg')
+st.image(image)
 st.title('Forecasting of Beds Available')
 st.sidebar.header('Select Date To Check Beds Availability ')
 
